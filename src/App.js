@@ -24,17 +24,17 @@ function App() {
   return (
     <div className="App flex flex-col w w-full items-center">
 
-      <div className="addTask flex justify-center items-center w-[100%] px-10 py-10 gap-5">
+      <div className="addTask flex justify-center items-center w-[100%] px-10 py-10 gap-5 bg-zinc-500">
         <input className="border-2 border-black rounded-xl px-4 py-2" onChange={handleChange}/>
         <button className="border-2 font-bold uppercase border-black rounded-xl px-3 py-2" onClick = {addTask}> Add Task </button>
       </div>
       
-      <div className="list flex flex-col items-center py-6 h-auto w-[100%] ">
+      <div className="list flex flex-col items-center gap-10 py-6 h-auto w-[100%] ">
         {toDo.map((task) =>{
           return (
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-5">
             <h1 className="font-semibold text-xl">{task.taskName}</h1>
-            <button className="border-2 font-bold uppercase border-black rounded-xl px-2 py-1" onClick={()=> deleteTask(task.id) }>X</button>
+            <button className="border-2 font-bold uppercase border-black rounded-full px-3 py-1 bg-red-600" onClick={()=> deleteTask(task.id) }>X</button>
           </div>
           )
         })}
