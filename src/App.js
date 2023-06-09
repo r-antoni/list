@@ -11,12 +11,18 @@ function App() {
     setToDo([...toDo, newTask])
   }
 
+  const deleteTask = (taskName) => {
+    setToDo(toDo.filter((task) =>{
+      return task !== taskName
+    }))
+  }
+
   return (
     <div className="App">
-      
+
       <div className="addTask">
         <input className="border-2" onChange={handleChange}/>
-        <button onClick = {addTask}> Add Task </button>
+        <button className="border-2" onClick = {addTask}> Add Task </button>
       </div>
       
       <div className="list">
@@ -24,7 +30,7 @@ function App() {
           return (
           <div>
             <h1>{task}</h1>
-            <button>X</button>
+            <button className="border-2" onClick={()=> deleteTask(task) }>X</button>
           </div>
           )
         })}
