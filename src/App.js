@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {Task} from "./Task";
 
 function App() {
   const [toDo, setToDo] = useState([]);
@@ -32,10 +33,7 @@ function App() {
       <div className="list flex flex-col items-center gap-10 py-6 h-auto w-[100%] ">
         {toDo.map((task) =>{
           return (
-          <div className="flex items-center gap-5">
-            <h1 className="font-semibold text-xl">{task.taskName}</h1>
-            <button className="border-2 font-bold uppercase border-black rounded-full px-3 py-1 bg-red-600" onClick={()=> deleteTask(task.id) }>X</button>
-          </div>
+          <Task taskName={task.taskName} id={task.id} deleteTask={deleteTask}/>
           )
         })}
       </div>
