@@ -1,5 +1,5 @@
-import { useState } from "react";
-import {Task} from "./Task";
+import { useState } from 'react'
+import Task from './Task';
 
 function App() {
   const [toDo, setToDo] = useState([]);
@@ -8,6 +8,7 @@ function App() {
   const handleChange  = (event) => {
     setNewTask(event.target.value)
   }
+  
   const addTask = () => {
     const task = {
       id: toDo.length === 0 ? 1 : toDo[toDo.length - 1].id + 1,
@@ -39,7 +40,7 @@ function App() {
     <div className="App flex flex-col w w-full items-center">
 
       <div className="addTask flex justify-center items-center w-[100%] px-10 py-10 gap-5 bg-zinc-500">
-        <input className="border-2 border-slate-300 rounded-xl px-4 py-2" onChange={handleChange}/>
+        <input className="border-2 border-slate-300 rounded-lg px-4 py-2 w-1/2" onChange={handleChange}/>
         <button className="font-medium bg-slate-300 px-3 py-2 rounded-xl" onClick = {addTask}> Add Task </button>
       </div>
       
@@ -54,4 +55,5 @@ function App() {
   );
 }
 
-export default App;
+
+export default App
